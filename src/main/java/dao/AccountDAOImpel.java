@@ -2,9 +2,11 @@ package dao;
 
 import domain.Account;
 
+import java.util.Optional;
+
 public class AccountDAOImpel implements AccountDAO {
     @Override
-    public Account findByAccountNumber(Long accountNumber) {
+    public Optional<Account> findByAccountNumber(Long accountNumber) {
         return null;
     }
 
@@ -14,7 +16,7 @@ public class AccountDAOImpel implements AccountDAO {
     }
 
     @Override
-    public Account read(Long aLong) {
+    public Optional<Account> read(Long aLong) {
         return null;
     }
 

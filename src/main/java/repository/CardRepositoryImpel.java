@@ -2,6 +2,8 @@ package repository;
 
 import domain.Card;
 
+import java.util.Optional;
+
 public class CardRepositoryImpel implements CardRepository {
     @Override
     public Card findByCardNumber(String cardNumber) {
@@ -14,8 +16,8 @@ public class CardRepositoryImpel implements CardRepository {
     }
 
     @Override
-    public Card read(Long aLong) {
-        return null;
+    public Optional<Card> read(Long aLong) {
+        return Optional.empty();
     }
 
     @Override

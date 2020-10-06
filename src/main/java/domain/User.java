@@ -9,7 +9,7 @@ import java.util.Date;
 public abstract class User {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column(name = "USER_ID")
+    @Column(name = "ID")
     private Long userId;
     @Column(name = "ID_CARD_NUMBER")
     private Long idCardNumber;

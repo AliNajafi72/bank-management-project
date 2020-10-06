@@ -1,7 +1,9 @@
 package dao;
 import domain.Client;
 
+import java.util.Optional;
+
 public interface ClientDAO extends DAO<Long, Client> {
-    Client findByUserName(String username);
-    Client findByIDNumber(Long idCardNumber);
+    Optional<Client> findByUserName(String username);
+    Optional<Client> findByIDNumber(Long idCardNumber);
 }

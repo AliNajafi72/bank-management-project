@@ -2,9 +2,11 @@ package dao;
 
 import domain.Card;
 
+import java.util.Optional;
+
 public class CardDAOImpel implements CardDAO {
     @Override
-    public Card findByCardNumber(String cardNumber) {
+    public Optional<Card> findByCardNumber(String cardNumber) {
         return null;
     }
 
@@ -14,7 +16,7 @@ public class CardDAOImpel implements CardDAO {
     }
 
     @Override
-    public Card read(Long aLong) {
+    public Optional<Card> read(Long aLong) {
         return null;
     }
 

@@ -1,8 +1,9 @@
 package dao;
 
 import domain.Account;
-import domain.Employee;
+
+import java.util.Optional;
 
 public interface AccountDAO extends DAO<Long, Account> {
-    Account findByAccountNumber(Long accountNumber);
+    Optional<Account> findByAccountNumber(Long accountNumber);
 }

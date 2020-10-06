@@ -2,14 +2,16 @@ package dao;
 
 import domain.Employee;
 
+import java.util.Optional;
+
 public class EmployeeDAOImpel implements EmployeeDAO {
     @Override
-    public Employee findByUserName(String username) {
+    public Optional<Employee> findByUserName(String username) {
         return null;
     }
 
     @Override
-    public Employee findByIDNumber(Long idCardNumber) {
+    public Optional<Employee> findByIDNumber(Long idCardNumber) {
         return null;
     }
 
@@ -19,7 +21,7 @@ public class EmployeeDAOImpel implements EmployeeDAO {
     }
 
     @Override
-    public Employee read(Long aLong) {
+    public Optional<Employee> read(Long aLong) {
         return null;
     }
 

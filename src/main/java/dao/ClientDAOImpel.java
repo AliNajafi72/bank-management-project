@@ -1,15 +1,31 @@
 package dao;
 
 import domain.Client;
+import util.EntityManagerFactorySingleton;
+
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import java.util.List;
+import java.util.Optional;
 
 public class ClientDAOImpel implements ClientDAO {
+    EntityManager entityManager;
     @Override
-    public Client findByUserName(String username) {
-        return null;
+    public Optional<Client> findByUserName(String username) {
+        entityManager = EntityManagerFactorySingleton.getEntityManagerFactoryInstance().createEntityManager();
+        TypedQuery<Client> namedQuery = entityManager.createNamedQuery("FIND_BY_USERNAME", Client.class);
+        namedQuery.setParameter("username", username);
+        Optional<Client> clientOptional;
+        if (namedQuery.getResultList().size()>0) {
+            clientOptional = Optional.ofNullable(namedQuery.getResultList().get(0));
+        } else {
+            clientOptional = Optional.empty();
+        }
+        return clientOptional;
     }
 
     @Override
-    public Client findByIDNumber(Long idCardNumber) {
+    public Optional<Client> findByIDNumber(Long idCardNumber) {
         return null;
     }
 
@@ -19,7 +35,7 @@ public class ClientDAOImpel implements ClientDAO {
     }
 
     @Override
-    public Client read(Long aLong) {
+    public Optional<Client> read(Long aLong) {
         return null;
     }
 

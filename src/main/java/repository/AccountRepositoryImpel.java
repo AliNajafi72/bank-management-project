@@ -2,6 +2,8 @@ package repository;
 
 import domain.Account;
 
+import java.util.Optional;
+
 public class AccountRepositoryImpel implements AccountRepository {
     @Override
     public Account findByAccountNumber(Long accountNumber) {
@@ -14,8 +16,8 @@ public class AccountRepositoryImpel implements AccountRepository {
     }
 
     @Override
-    public Account read(Long aLong) {
-        return null;
+    public Optional<Account> read(Long aLong) {
+        return Optional.empty();
     }
 
     @Override

@@ -1,9 +1,10 @@
 package dao;
 
-import domain.Client;
 import domain.Employee;
 
+import java.util.Optional;
+
 public interface EmployeeDAO extends DAO<Long, Employee> {
-    Employee findByUserName(String username);
-    Employee findByIDNumber(Long idCardNumber);
+    Optional<Employee> findByUserName(String username);
+    Optional<Employee> findByIDNumber(Long idCardNumber);
 }

@@ -2,6 +2,8 @@ package dao;
 
 import domain.Card;
 
+import java.util.Optional;
+
 public interface CardDAO extends DAO<Long, Card> {
-    Card findByCardNumber(String cardNumber);
+    Optional<Card> findByCardNumber(String cardNumber);
 }

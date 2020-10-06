@@ -25,8 +25,12 @@ public class Account {
     })
     @JoinColumn(name = "FK_CARD")
     private Card card;
-    @OneToMany(cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "FK_ACCOUNT")
+    @ManyToMany
+    @JoinTable(
+            name = "ACCOUNT_TRANSACTION",
+            joinColumns = {@JoinColumn(name = "FK_ACCOUNT")},
+            inverseJoinColumns = {@JoinColumn(name = "FK_TRANSACTION")}
+    )
     private List<Transaction> transactions = new ArrayList<>();
 
     public Long getAccountId() {

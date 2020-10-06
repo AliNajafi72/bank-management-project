@@ -2,6 +2,8 @@ package repository;
 
 import domain.Employee;
 
+import java.util.Optional;
+
 public class EmployeeRepositoryImpel implements EmployeeRepository {
     @Override
     public Employee findByUserName(String username) {
@@ -19,8 +21,8 @@ public class EmployeeRepositoryImpel implements EmployeeRepository {
     }
 
     @Override
-    public Employee read(Long aLong) {
-        return null;
+    public Optional<Employee> read(Long aLong) {
+        return Optional.empty();
     }
 
     @Override

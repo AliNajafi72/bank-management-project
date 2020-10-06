@@ -6,11 +6,13 @@ import java.util.List;
 
 @Entity
 @Table(name = "clients")
+
+@NamedQuery(
+        name = "FIND_BY_USERNAME",
+        query = "SELECT c FROM Client c WHERE c.username =:username"
+)
+
 public class Client extends User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "CLIENT_ID")
-    private Long clientId;
     @Column(name = "USERNAME")
     private String username;
     @Column(name = "PASSWORD")
@@ -18,14 +20,13 @@ public class Client extends User {
     @OneToMany
     @JoinColumn(name = "FK_CLIENT")
     private List<Account> accounts = new ArrayList<>();
-
-    public Long getClientId() {
-        return clientId;
-    }
-
-    public void setClientId(Long clientId) {
-        this.clientId = clientId;
-    }
+    @ManyToMany
+    @JoinTable(
+            name = "CLIENT_BRANCH",
+            joinColumns = {@JoinColumn(name = "FK_CLIENT")},
+            inverseJoinColumns = {@JoinColumn(name = "FK_BRANCH")}
+    )
+    private List<Branch> branches = new ArrayList<>();
 
     public String getUsername() {
         return username;
@@ -49,5 +50,13 @@ public class Client extends User {
 
     public void setAccounts(List<Account> accounts) {
         this.accounts = accounts;
+    }
+
+    public List<Branch> getBranches() {
+        return branches;
+    }
+
+    public void setBranches(List<Branch> branches) {
+        this.branches = branches;
     }
 }

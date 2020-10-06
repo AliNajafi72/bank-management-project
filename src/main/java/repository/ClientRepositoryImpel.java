@@ -1,16 +1,21 @@
 package repository;
 
+import dao.ClientDAOImpel;
 import domain.Client;
 
+import java.util.Optional;
+
 public class ClientRepositoryImpel implements ClientRepository {
+
     @Override
-    public Client findByUserName(String username) {
-        return null;
+    public Optional<Client> findByUserName(String username) {
+
+        return new ClientDAOImpel().findByUserName(username);
     }
 
     @Override
-    public Client findByIDNumber(Long idCardNumber) {
-        return null;
+    public Optional<Client> findByIDNumber(Long idCardNumber) {
+        return Optional.empty();
     }
 
     @Override
@@ -19,8 +24,8 @@ public class ClientRepositoryImpel implements ClientRepository {
     }
 
     @Override
-    public Client read(Long aLong) {
-        return null;
+    public Optional<Client> read(Long aLong) {
+        return Optional.empty();
     }
 
     @Override
